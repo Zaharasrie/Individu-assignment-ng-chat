@@ -15,7 +15,7 @@ export class ChatService {
     );
   }
 
-  async chatMessages(text: string) {
+  async chatMessages(text: string): Promise<void> {
     console.log("Chat_message", text);
     try {
       const {data, error} = await this.supabase
@@ -28,7 +28,6 @@ export class ChatService {
       
     } catch(error) {
       alert(error);
-      return null;
     }
   }
 

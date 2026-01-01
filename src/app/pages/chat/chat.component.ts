@@ -5,11 +5,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { ChatService } from '../../supabase/chat.service';
 import { Ichat } from '../../interface/chat-response';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DatePipe],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
