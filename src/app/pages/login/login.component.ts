@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,5 +9,16 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  // Gunakan inject(AuthService) seperti yang anda buat
+  private auth = inject(AuthService);
 
+  async handleAuth() {
+    try {
+      // Memanggil fungsi login dari service
+      const response = await this.auth.signInWithGoogle();
+      console.log('Login response:', response);
+    } catch (error) {
+      console.error('Error during login:', error);
+    }
+  }
 }
